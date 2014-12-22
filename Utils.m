@@ -41,13 +41,15 @@
     [hud hide:YES afterDelay:time];
 }
 
-+ (void) showIndicator:(UIViewController *)viewController indicator:(UIActivityIndicatorView *)indicator{
++ (UIActivityIndicatorView *) showIndicator:(UIViewController *)viewController {
     
-    indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
     indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     UIBarButtonItem* btn_indicator = [[UIBarButtonItem alloc] initWithCustomView:indicator];
     viewController.navigationItem.rightBarButtonItem = btn_indicator;
     [indicator startAnimating];
+    
+    return indicator;
 }
 
 + (void) hideIndicator:(UIViewController *)viewController indicator:(UIActivityIndicatorView *)indicator{
